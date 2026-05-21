@@ -15,6 +15,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://wandermayank.netlify.app"),
   title: "WanderMind | AI Travel Platform",
   description: "Your AI travel companion. Every journey, remembered. Plan itineraries and connect with travelers worldwide.",
   keywords: ["AI travel", "travel planner", "itinerary builder", "travel community", "WanderMind"],
