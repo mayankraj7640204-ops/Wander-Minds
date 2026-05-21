@@ -7,7 +7,7 @@ import { CommunityView } from '@/components/dashboard/CommunityView';
 import { MemoryView } from '@/components/dashboard/MemoryView';
 
 export default function DashboardPage() {
-  const [activeTab, setActiveTab] = useState('pricing');
+  const [activeTab, setActiveTab] = useState('overview');
 
   return (
     <div className="flex min-h-screen bg-[#0f111a] text-slate-200 font-sans">
@@ -16,7 +16,7 @@ export default function DashboardPage() {
 
       {/* Main Content Area */}
       <main className="flex-1 p-8 lg:p-12 overflow-y-auto">
-        {activeTab === 'pricing' && <PricingView />}
+        {activeTab === 'overview' && <PricingView />}
         {activeTab === 'community' && <CommunityView />}
         {activeTab === 'memory' && <MemoryView />}
       </main>

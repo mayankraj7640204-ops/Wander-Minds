@@ -137,7 +137,7 @@ export function PricingView() {
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-2">Pricing & Analytics</h1>
+        <h1 className="text-3xl font-bold text-white mb-2">Dashboard Overview</h1>
         <p className="text-slate-400">Track user growth, paid subscriptions, and platform ratings.</p>
       </div>
 

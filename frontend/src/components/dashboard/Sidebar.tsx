@@ -10,7 +10,7 @@ interface SidebarProps {
 
 export function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
   const navItems = [
-    { id: 'pricing', label: 'Pricing & Analytics', icon: BarChart3 },
+    { id: 'overview', label: 'Dashboard Overview', icon: BarChart3 },
     { id: 'community', label: 'Community Matches', icon: Users },
     { id: 'memory', label: 'Memory Capsule', icon: ImageIcon },
   ];

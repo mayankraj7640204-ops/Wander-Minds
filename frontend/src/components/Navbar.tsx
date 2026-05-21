@@ -34,7 +34,7 @@ export function Navbar() {
     { name: 'FEATURES', href: '#features' },
     { name: 'ITINERARIES', href: '#itineraries' },
     { name: 'COMMUNITY', href: '/dashboard' },
-    { name: 'PRICING', href: '/dashboard' },
+    { name: 'DASHBOARD', href: '/dashboard' },
   ];
 
   return (
