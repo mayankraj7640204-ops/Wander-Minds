@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fdfbf7;
+  --foreground: #1c1917;
+  --brand-indigo: #1e1b4b;
+  --brand-sand: #fdfbf7;
+  --brand-terracotta: #c55a47;
+  --brand-forest: #2d4a22;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-indigo: var(--brand-indigo);
+  --color-brand-sand: var(--brand-sand);
+  --color-brand-terracotta: var(--brand-terracotta);
+  --color-brand-forest: var(--brand-forest);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Custom utilities */
+@layer utilities {
+  .polaroid-tilt-1 {
+    transform: rotate(-3deg);
+  }
+  .polaroid-tilt-2 {
+    transform: rotate(2deg);
+  }
+  .polaroid-tilt-3 {
+    transform: rotate(-1deg);
+  }
+}
