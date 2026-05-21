@@ -8,7 +8,7 @@ export function CommunityView() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+    const apiUrl = '';
     fetch(`${apiUrl}/api/dashboard/community`)
       .then(res => res.json())
       .then(data => {

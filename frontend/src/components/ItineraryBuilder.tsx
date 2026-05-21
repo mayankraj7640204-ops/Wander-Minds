@@ -12,7 +12,7 @@ export function ItineraryBuilder() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+    const apiUrl = '';
     fetch(`${apiUrl}/api/itinerary`)
       .then(res => {
         if (!res.ok) throw new Error('Network response was not ok');
