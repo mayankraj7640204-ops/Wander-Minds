@@ -1,10 +1,14 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ImageSequencePlayer } from './ImageSequencePlayer';
+import { DemoVideoModal } from './DemoVideoModal';
+import { AiPlannerModal } from './AiPlannerModal';
 
 export function HeroSection() {
   const textRef = useRef<HTMLDivElement>(null);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [isAiModalOpen, setIsAiModalOpen] = useState(false);
 
   useEffect(() => {
     let animationFrameId: number;
@@ -57,14 +61,23 @@ export function HeroSection() {
         </p>
         
         <div className="flex flex-col sm:flex-row items-center gap-4">
-          <button className="bg-brand-terracotta hover:bg-brand-terracotta/90 text-white px-8 py-4 rounded-full text-lg font-medium transition-transform hover:scale-105 active:scale-95 shadow-xl">
+          <button 
+            onClick={() => setIsAiModalOpen(true)}
+            className="bg-brand-terracotta hover:bg-brand-terracotta/90 text-white px-8 py-4 rounded-full text-lg font-medium transition-transform hover:scale-105 active:scale-95 shadow-xl"
+          >
             Plan My Trip
           </button>
-          <button className="bg-transparent hover:bg-white/10 text-white border-2 border-white/80 px-8 py-4 rounded-full text-lg font-medium transition-all hover:border-white shadow-lg backdrop-blur-sm">
+          <button 
+            onClick={() => setIsVideoModalOpen(true)}
+            className="bg-transparent hover:bg-white/10 text-white border-2 border-white/80 px-8 py-4 rounded-full text-lg font-medium transition-all hover:border-white shadow-lg backdrop-blur-sm"
+          >
             Explore Demo
           </button>
         </div>
       </div>
+
+      <DemoVideoModal isOpen={isVideoModalOpen} onClose={() => setIsVideoModalOpen(false)} />
+      <AiPlannerModal isOpen={isAiModalOpen} onClose={() => setIsAiModalOpen(false)} />
     </section>
   );
 }
