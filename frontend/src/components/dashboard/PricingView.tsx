@@ -33,7 +33,8 @@ export function PricingView() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/dashboard/stats')
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+    fetch(`${apiUrl}/api/dashboard/stats`)
       .then((res) => res.json())
       .then((data) => {
         setStats(data);

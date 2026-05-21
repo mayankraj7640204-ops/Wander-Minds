@@ -7,7 +7,8 @@ export function MemoryView() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/dashboard/memory')
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+    fetch(`${apiUrl}/api/dashboard/memory`)
       .then(res => res.json())
       .then(data => {
         setMemoryPhotos(data);

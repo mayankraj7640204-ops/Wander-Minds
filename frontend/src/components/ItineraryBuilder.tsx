@@ -11,7 +11,8 @@ export function ItineraryBuilder() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/itinerary')
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+    fetch(`${apiUrl}/api/itinerary`)
       .then(res => res.json())
       .then(data => {
         setItineraryDays(data);
