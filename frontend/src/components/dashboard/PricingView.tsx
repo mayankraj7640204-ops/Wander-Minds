@@ -31,23 +31,38 @@ export function PricingView() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [stats, setStats] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
     fetch(`${apiUrl}/api/dashboard/stats`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error('Network response was not ok');
+        return res.json();
+      })
       .then((data) => {
         setStats(data);
         setLoading(false);
       })
       .catch((err) => {
         console.error("Failed to fetch stats", err);
+        setError(`Could not connect to backend API at ${apiUrl}. Is it running?`);
         setLoading(false);
       });
   }, []);
 
-  if (loading || !stats) {
+  if (loading) {
     return <div className="text-slate-400">Loading analytics...</div>;
+  }
+
+  if (error || !stats) {
+    return (
+      <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-6 rounded-xl">
+        <h3 className="font-bold mb-2">Backend Connection Error</h3>
+        <p>{error || "Failed to load dashboard data."}</p>
+        <p className="mt-4 text-sm opacity-80">If you are on Netlify, make sure NEXT_PUBLIC_API_URL is set in your Site Settings to your live Render URL.</p>
+      </div>
+    );
   }
 
   const lineData = {

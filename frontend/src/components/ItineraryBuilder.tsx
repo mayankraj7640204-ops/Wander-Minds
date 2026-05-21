@@ -9,17 +9,22 @@ export function ItineraryBuilder() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [itineraryDays, setItineraryDays] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
     fetch(`${apiUrl}/api/itinerary`)
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error('Network response was not ok');
+        return res.json();
+      })
       .then(data => {
         setItineraryDays(data);
         setLoading(false);
       })
       .catch(err => {
         console.error("Failed to load itinerary", err);
+        setError(`Could not connect to backend API at ${apiUrl}`);
         setLoading(false);
       });
   }, []);
