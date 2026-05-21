@@ -33,8 +33,8 @@ export function Navbar() {
     { name: 'HOME', href: '/' },
     { name: 'FEATURES', href: '#features' },
     { name: 'ITINERARIES', href: '#itineraries' },
-    { name: 'COMMUNITY', href: '#community' },
-    { name: 'PRICING', href: '#pricing' },
+    { name: 'COMMUNITY', href: '/dashboard' },
+    { name: 'PRICING', href: '/dashboard' },
   ];
 
   return (
