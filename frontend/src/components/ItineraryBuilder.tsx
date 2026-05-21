@@ -29,6 +29,15 @@ export function ItineraryBuilder() {
       });
   }, []);
 
+  if (error) {
+    return (
+      <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-6 rounded-xl mt-8">
+        <h3 className="font-bold mb-2">Backend Connection Error</h3>
+        <p>{error}</p>
+      </div>
+    );
+  }
+
   return (
     <section id="itineraries" className="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
       <div className="mb-12 text-center md:text-left">

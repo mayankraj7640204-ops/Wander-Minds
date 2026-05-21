@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export function MemoryCapsule() {
   const cards = [
@@ -26,7 +27,7 @@ export function MemoryCapsule() {
             className={`bg-white p-4 pb-16 md:pb-20 shadow-xl border border-gray-100 rounded-sm relative transition-transform duration-500 hover:scale-105 hover:z-10 ${card.tilt}`}
           >
             <div className="w-full aspect-square bg-gray-100 relative overflow-hidden">
-              <img src={card.image} alt={`Memory ${card.id}`} className="w-full h-full object-cover" />
+              <Image src={card.image} alt={`Memory ${card.id}`} fill className="object-cover" />
             </div>
             {card.hasCaption && (
               <div className="absolute bottom-4 left-4 right-4 text-center">

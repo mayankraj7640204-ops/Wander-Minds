@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 
+import Image from 'next/image';
+
 export function MemoryView() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [memoryPhotos, setMemoryPhotos] = useState<any[]>([]);
@@ -38,11 +40,11 @@ export function MemoryView() {
               photo.large ? "col-span-2 row-span-2" : "col-span-1 row-span-1"
             )}
           >
-            <img 
+            <Image 
               src={photo.img} 
               alt={photo.label} 
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              loading="lazy"
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
               <span className="text-white font-medium drop-shadow-md">{photo.label}</span>

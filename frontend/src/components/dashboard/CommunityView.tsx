@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import Image from 'next/image';
+
 export function CommunityView() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [communityData, setCommunityData] = useState<any[]>([]);
@@ -34,8 +36,8 @@ export function CommunityView() {
             key={idx} 
             className="bg-[#1b1e2e] border border-white/5 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-500/10 hover:border-cyan-500/30"
           >
-            <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-cyan-500 p-0.5 mb-4">
-              <img src={person.img} alt={person.name} className="w-full h-full object-cover rounded-full" />
+            <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-cyan-500 p-0.5 mb-4 relative">
+              <Image src={person.img} alt={person.name} fill className="object-cover rounded-full" />
             </div>
             <h3 className="text-lg font-bold text-white mb-1">{person.name}</h3>
             <p className="text-sm text-slate-400 mb-4">{person.style}</p>

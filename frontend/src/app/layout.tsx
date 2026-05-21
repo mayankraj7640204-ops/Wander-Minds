@@ -9,7 +9,23 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "WanderMind | AI Travel Platform",
-  description: "Your AI travel companion. Every journey, remembered.",
+  description: "Your AI travel companion. Every journey, remembered. Plan itineraries and connect with travelers worldwide.",
+  keywords: ["AI travel", "travel planner", "itinerary builder", "travel community", "WanderMind"],
+  openGraph: {
+    title: "WanderMind | AI Travel Platform",
+    description: "Your AI travel companion. Every journey, remembered.",
+    url: "https://wanderminds.netlify.app",
+    siteName: "WanderMind",
+    images: [{ url: "/cta-bg.png", width: 1200, height: 630 }],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "WanderMind | AI Travel Platform",
+    description: "Your AI travel companion. Every journey, remembered.",
+    images: ["/cta-bg.png"],
+  },
 };
 
 export default function RootLayout({

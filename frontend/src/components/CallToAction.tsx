@@ -1,13 +1,15 @@
 import React from 'react';
+import Image from 'next/image';
 
 export function CallToAction() {
   return (
     <section className="relative min-h-[500px] flex items-center justify-center py-24 px-6 overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img 
+        <Image 
           src="/cta-bg.png" 
           alt="Travelers running in a historic street" 
-          className="w-full h-full object-cover object-center"
+          fill
+          className="object-cover object-center"
         />
         {/* Overlays for text readability and cinematic color grading */}
         <div className="absolute inset-0 bg-brand-forest/60 mix-blend-multiply" />

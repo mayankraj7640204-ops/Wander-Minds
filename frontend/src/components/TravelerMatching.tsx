@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const MATCHES = [
   { id: 1, name: 'Elena R.', style: 'Solo Explorer', score: 92, image: '/persons/person-1.png' },
@@ -20,8 +21,8 @@ export function TravelerMatching() {
         {MATCHES.map((match) => (
           <div key={match.id} className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-shadow flex flex-col items-center text-center group">
             {/* Avatar Image */}
-            <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-transparent group-hover:border-brand-terracotta transition-colors mb-6 shadow-md">
-              <img src={match.image} alt={match.name} className="w-full h-full object-cover" />
+            <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-transparent group-hover:border-brand-terracotta transition-colors mb-6 shadow-md relative">
+              <Image src={match.image} alt={match.name} fill className="object-cover" />
             </div>
             
             <h3 className="text-xl font-bold text-gray-900 mb-2">{match.name}</h3>

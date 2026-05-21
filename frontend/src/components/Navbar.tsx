@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { MoreHorizontal, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -48,8 +49,8 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group z-[60]" onClick={() => setMenuOpen(false)}>
-            <div className="w-10 h-10 flex items-center justify-center rounded overflow-hidden">
-              <img src="/logo.png" alt="WanderMind Logo" className="w-full h-full object-cover" />
+            <div className="w-10 h-10 flex items-center justify-center rounded overflow-hidden relative">
+              <Image src="/logo.png" alt="WanderMind Logo" fill className="object-cover" />
             </div>
             <span className={cn(
               "text-xl font-bold tracking-tight transition-colors drop-shadow-sm",
